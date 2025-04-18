@@ -1,0 +1,753 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    /* padding-top: 100px; */
+    padding-bottom: 70px;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.header {
+    background-color: #161513;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 120px; /* Add space for fixed header */
+}
+
+/* Card layout styles */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: rgba(4, 69, 149, 0);
+    border-radius: 8px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    padding: 2rem;
+    width: calc(50% - 1rem);
+    min-width: 300px;
+    aspect-ratio: 1/1;
+    /* Make cards square */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center content vertically */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    /* Added to establish positioning context */
+    overflow: hidden;
+    /* Ensure content doesn't overflow */
+}
+
+/* .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+} */
+
+.card-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the image */
+    width: 70%;
+    /* Reduced from 100% */
+    height: 70%;
+    /* Reduced from 100% */
+    object-fit: contain;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.card-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    /* Increased spacing between title and image */
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    top: 2%;
+}
+
+.card-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 3rem;
+    /* Added spacing above subtitle */
+    margin-bottom: 1rem;
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    left: 2%;
+    right: 2%;
+}
+
+.contact-button {
+    position: relative;
+    /* Make text appear on top of image */
+    z-index: 1;
+    /* Higher than image */
+}
+
+.footer {
+    background-color: #161513;
+    color: #fff;
+    padding: 1rem 2rem;
+    width: 100%;
+    margin-top: auto;
+    /* Push to the bottom */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    /* Center the content horizontally */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    height: 30px;
+    width: auto;
+}
+
+.footer-links {
+    display: flex;
+    list-style: none;
+}
+
+.footer-links li {
+    margin-left: 1.5rem;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ddd;
+}
+
+/* Wide card styles */
+.wide-card {
+    background-color: rgba(4, 69, 149, 0);
+    border-radius: 8px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    padding: 2rem;
+    width: calc(100% - 0.5rem);
+    /* Match the width of two cards plus the gap */
+    margin: 0 auto 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 2/1;
+    /* Make height half of width */
+    justify-content: center;
+}
+
+.search-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: row; /* Ensure horizontal layout always */
+}
+
+.fake-search {
+    flex-grow: 1;
+    height: 50px;
+    border: 2px solid #00FF80;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: #161513;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.fake-search-text {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 20px;
+    background-color: #ffffff;
+    margin-left: 3px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.fake-button {
+    height: auto;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.fake-button:hover {
+    transform: scale(1.1);
+}
+
+.fake-button img {
+    height: 100%;
+    width: 100%;
+}
+
+/* Wait list card styles */
+.waitlist-card {
+    margin-top: 2rem;
+}
+
+.waitlist-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.waitlist-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 4rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.waitlist-container {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.email-field {
+    flex-grow: 1;
+    height: 50px;
+    border: 2px solid #00FF80;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: #161513;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Added transition for box-shadow */
+}
+
+.email-field:focus {
+    border-color: #00FF80;
+    box-shadow: 0 0 10px rgba(0, 255, 128, 0.5);
+    /* Add glow effect on focus */
+    outline: none;
+}
+
+.email-field::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-button {
+    height: 50px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(4, 70, 150, 0.8);
+    color: #161513;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.subscribe-button:hover {
+    transform: translateY(-2px);
+    background-color: rgba(4, 70, 150, 1);
+}
+
+/* Contact button style */
+.contact-button {
+    margin-top: 1.5rem;
+    padding: 0.8rem 2.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(4, 70, 150, 0.8);
+    color: #161513;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    background-color: rgba(4, 70, 150, 1);
+}
+
+/* Logo card specific styling */
+.logo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo-built-title {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-built-image {
+    width: 70%;
+    /* Reduced size */
+    height: 70%;
+    /* Reduced size */
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    z-index: 1;
+    opacity: 1;
+}
+
+.scroll-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    overflow: hidden;
+    /* max-width: 1200px; */
+    /* Match the max-width of main-content */
+}
+
+.step {
+    position: absolute;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+/* place the four text blocks roughly where your mock shows */
+#text-top-left {
+    top: 15%;
+    left: 15%;
+    text-align: center;
+    font-size: 3rem;
+    opacity: 0;
+}
+
+#text-top-right {
+    top: 25%;
+    right: 15%;
+    width: 30vw;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#text-bottom-right {
+    top: 55%;
+    right: 15%;
+    font-size: 2rem;
+    text-align: center;
+    font-size: 3rem;
+}
+
+#text-bottom-left {
+    bottom: 5%;
+    left: 15%;
+    width: 30vw;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#knowledge-path {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: visible;
+}
+
+#guiding-star {
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    width: 500px;
+    /* Increased size */
+    height: auto;
+    opacity: 0;
+}
+
+/* Media queries for responsive design */
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+    .card {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .main-content {
+        padding: 1.5rem;
+    }
+    
+    .search-title, .waitlist-title, .card-title {
+        font-size: 2.5rem;
+    }
+    
+    .waitlist-subtitle, .card-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .scroll-wrapper {
+        height: 80vh;
+    }
+    
+    #knowledge-path svg {
+        width: 60%;
+        height: 60%;
+    }
+    
+    #text-top-left {
+        top: 10%;
+        left: 10%;
+        font-size: 2.5rem;
+    }
+    
+    #text-top-right {
+        top: 20%;
+        right: 10%;
+        width: 35vw;
+        font-size: 1.2rem;
+    }
+    
+    #text-bottom-right {
+        top: 50%;
+        right: 10%;
+        font-size: 2.5rem;
+    }
+    
+    #text-bottom-left {
+        bottom: 5%;
+        left: 10%;
+        width: 35vw;
+        font-size: 1.5rem;
+    }
+    
+    #guiding-star {
+        width: 400px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .brand-name {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+        margin-top: 100px;
+    }
+    
+    .search-title, .waitlist-title, .card-title {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+        min-width: 100%;
+    }
+    
+    .card-subtitle {
+        font-size: 1rem;
+        top: 25%;
+    }
+    
+    .wide-card {
+        padding: 1.5rem;
+        aspect-ratio: auto;
+        height: auto;
+    }
+    
+    .search-container {
+        flex-direction: row; /* Keep horizontal layout for search bar */
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .fake-search {
+        width: 85%; /* Allow room for button */
+    }
+    
+    .fake-button {
+        width: 15%;
+        min-width: 40px;
+    }
+    
+    .waitlist-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .email-field, .subscribe-button {
+        width: 100%;
+    }
+    
+    .scroll-wrapper {
+        height: 60vh;
+        margin-top: 3rem; /* Add more top margin on mobile */
+        padding-top: 1rem; /* Additional padding to ensure content is visible */
+    }
+    
+    #knowledge-path {
+        transform: scale(0.7);
+    }
+    
+    #text-top-left {
+        top: 5%;
+        left: 5%;
+        font-size: 1.8rem;
+        width: 90%;
+        text-align: center;
+    }
+    
+    #text-top-right {
+        top: 20%;
+        right: 5%;
+        width: 90%;
+        left: 5%;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    #text-bottom-right {
+        top: 45%;
+        right: 5%;
+        width: 90%;
+        left: 5%;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    
+    #text-bottom-left {
+        bottom: 5%;
+        left: 5%;
+        width: 90%;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    
+    #guiding-star {
+        width: 60%;
+        top: 55%;
+        right: 20%;
+    }
+    
+    .footer {
+        padding: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .footer-logo-section {
+        justify-content: center;
+    }
+    
+    .contact-button {
+        padding: 0.6rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo {
+        margin-right: 0;
+        margin-bottom: 5px;
+        height: 40px;
+    }
+    
+    .search-title, .waitlist-title, .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .waitlist-subtitle {
+        font-size: 1rem;
+    }
+    
+    .fake-search {
+        width: 80%; /* More space for button on very small screens */
+    }
+    
+    .fake-button {
+        width: 20%;
+        min-width: 30px;
+    }
+    
+    .scroll-wrapper {
+        margin-top: 4rem; /* Even more top margin on very small screens */
+        padding-top: 1.5rem;
+    }
+    
+    #knowledge-path {
+        transform: scale(0.5);
+    }
+    
+    #text-top-left,
+    #text-bottom-right {
+        font-size: 1.5rem;
+    }
+    
+    #text-top-right,
+    #text-bottom-left {
+        font-size: 0.9rem;
+    }
+}
