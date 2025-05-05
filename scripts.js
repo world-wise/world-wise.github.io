@@ -39,11 +39,11 @@ function showNotification(message) {
 
 document.addEventListener('DOMContentLoaded', function() {
     const textExamples = [
-        "Machine Learning Fundamentals",
-        "History of Ancient Egypt",
-        "Quantum Physics Basics",
-        "Creative Writing Techniques",
-        "Web Development with JavaScript"
+        "The Pharaohs of Ancient Egypt",
+        "Philosophy Schools of Thought",
+        "Renaissance Architecture",
+        "The Periodic Table of Elements",
+        "World War II: Key Battles"
     ];
     const typedTextElement = document.getElementById('typedText');
     let currentExample = 0;
