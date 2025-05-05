@@ -506,6 +506,37 @@ body {
     opacity: 0;
 }
 
+/* Notification styles */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #00ff80;
+    color: #1a1a1a;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 255, 128, 0.25);
+    font-weight: 500;
+    z-index: 1000;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .notification {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        text-align: center;
+    }
+}
+
 /* Media queries for responsive design */
 /* Tablets and small desktops */
 @media (max-width: 1024px) {

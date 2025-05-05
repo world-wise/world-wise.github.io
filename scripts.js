@@ -1,3 +1,42 @@
+document.forms["newsletter-form"].addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const resp = await fetch(event.target.action, {
+      method: "POST",
+      body: new URLSearchParams(new FormData(event.target)),
+    });
+    const body = await resp.json();
+    console.log(body);
+    
+    // Show notification on successful subscription
+    if (body && body.msg === "subscribed") {
+      showNotification("Success! You've been added to our waitlist.");
+    }
+  });
+
+// Notification function
+function showNotification(message) {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  
+  // Add to the DOM
+  document.body.appendChild(notification);
+  
+  // Trigger animation by adding the active class after a small delay
+  setTimeout(() => {
+    notification.classList.add('active');
+  }, 10);
+  
+  // Remove notification after 3 seconds
+  setTimeout(() => {
+    notification.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300); // wait for fade-out animation to complete
+  }, 3000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const textExamples = [
         "Machine Learning Fundamentals",
@@ -46,4 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start the typing animation
     typeEffect();
+    
+    // Add event listener to the contact button
+    const contactButton = document.querySelector('.contact-button');
+    if (contactButton) {
+        contactButton.addEventListener('click', function() {
+            window.location.href = 'mailto:arthur.queffelec@worldwise.fr';
+        });
+    }
 });
