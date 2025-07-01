@@ -30,191 +30,98 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Wide search card -->
-        <div class="wide-card">
-            <h2 class="search-title">What would you like to learn?</h2>
-            <div class="search-container">
-                <div class="fake-search" id="fakeSearch">
-                    <span id="typedText"></span>
-                    <span class="typing-cursor"></span>
+        <!-- Wide search card - centered in viewport -->
+        <section class="hero-section">
+            <div class="wide-card">
+                <h2 class="search-title">What would you like to learn?</h2>
+                <div class="search-container">
+                    <div class="fake-search" id="fakeSearch">
+                        <span id="typedText"></span>
+                        <span class="typing-cursor"></span>
+                    </div>
+                    <div class="fake-button">
+                        <img src="assets/LearnStars.svg" alt="Search">
+                    </div>
                 </div>
-                <div class="fake-button">
-                    <img src="assets/LearnStars.svg" alt="Search">
+            </div>
+        </section>
+
+        <!-- Animation section -->
+        <section class="animation-section">
+            <div class="scroll-wrapper">
+                <!-- Animation content container -->
+                <div class="animation-content">
+                    <!-- Text elements -->
+                    <div class="animation-texts">
+                        <div id="text-top-left" class="step text-element" data-position="top-left">
+                            Your way through<br>knowledge
+                        </div>
+                        
+                        <div id="text-top-right" class="step text-element" data-position="top-right">
+                            A new learning experience.<br>
+                            Exploratory. Personalized.<br>
+                            Empowering you to take control of your journey.
+                        </div>
+                        
+                        <div id="text-bottom-right" class="step text-element" data-position="bottom-right">
+                            A newly found guiding star
+                        </div>
+                        
+                        <div id="text-bottom-left" class="step text-element" data-position="bottom-left">
+                            Our hybrid technology.<br>
+                            Powered by the fusion of AI and neuroscience.
+                        </div>
+                    </div>
+
+                    <!-- SVG graphics container -->
+                    <div class="animation-graphics">
+                        <!-- Knowledge path SVG -->
+                        <div id="knowledge-path" class="step graphic-element" data-type="path">
+                            <svg width="1368" height="649" viewBox="0 0 1368 649" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="knowledge-path-svg">
+                                <g filter="url(#filter0_d_128_18)">
+                                    <path id="knowledge-path-svg" d="M23.5 23.5
+                                    C180 31.5 247.5 60.5 292.5 98.5
+                                    C315 117.5 332 139 351 162
+                                    C370 185 391.5 209 423 232.5
+                                    C485 279.5 542 302 600.5 300
+                                    C659 298 717.5 271.5 783.5 223
+                                    C848.5 175 934 139 1002 138
+                                    C1036 137.5 1064.5 145.5 1084.5 164.5
+                                    C1104 183.5 1115.5 214 1113.5 265
+                                    C1109.5 360.5 1141.5 424.5 1187 478.5
+                                    C1209.5 505.5 1235.5 529.5 1261.5 554
+                                    C1287.5 578.5 1313.5 603 1337.5 630
+                                    C1251 635.5 1346.5 538  1341.5 630" fill="none" stroke="#00FF80" stroke-width="8"
+                                        stroke-linecap="round" />
+                                </g>
+                                <defs>
+                                    <filter id="filter0_d_128_18" x="0.6" y="0.599878" width="1366.62" height="648.3"
+                                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset />
+                                        <feGaussianBlur stdDeviation="8.95" />
+                                        <feComposite in2="hardAlpha" operator="out" />
+                                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 0.501961 0 0 0 1 0" />
+                                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_128_18" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_128_18" result="shape" />
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </div>
+                        
+                        <!-- Guiding star -->
+                        <img id="guiding-star" src="assets/GuidingStar.svg" alt="Guiding Star" 
+                             class="graphic-element" data-type="star">
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Two cards side by side -->
-        <!-- <div class="cards-container"> -->
-        <!-- First Card -->
-        <!-- <div class="card">
-                <h2 class="card-title">Your way through knowledge</h2>
-                <img src="assets/KnowledgePath.svg" alt="Knowledge Path" class="card-image">
-                <p class="card-subtitle">A new learning experience. Exploratory. Personalized.
-                    Empowering you to take control of your journey.</p>
-            </div> -->
-
-        <!-- Second Card -->
-        <!-- <div class="card">
-                <h2 class="card-title">A newly found guiding star</h2>
-                <img src="assets/GuidingStar.svg" alt="Guiding Star" class="card-image">
-                <p class="card-subtitle">Our hybrid technology.
-                    Powered by the fusion of AI and neuroscience.</p>
-            </div> -->
-        <!-- </div> -->
-
-        <div class="scroll-wrapper">
-            <!-- Top‑Left Text -->
-            <div id="text-top-left" class="step">
-                Your way through<br>knowledge
-            </div>
-
-            <!-- KnowledgePath SVG replacing the arrow SVG -->
-            <div id="knowledge-path" class="step">
-                <svg width="1368" height="649" style="width: 45%; height: 50%;" viewBox="0 0 1368 649" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d_128_18)">
-                        <path id="knowledge-path-svg" d="M23.5 23.5
-                        C180 31.5 247.5 60.5 292.5 98.5
-                        C315 117.5 332 139 351 162
-                        C370 185 391.5 209 423 232.5
-                        C485 279.5 542 302 600.5 300
-                        C659 298 717.5 271.5 783.5 223
-                        C848.5 175 934 139 1002 138
-                        C1036 137.5 1064.5 145.5 1084.5 164.5
-                        C1104 183.5 1115.5 214 1113.5 265
-                        C1109.5 360.5 1141.5 424.5 1187 478.5
-                        C1209.5 505.5 1235.5 529.5 1261.5 554
-                        C1287.5 578.5 1313.5 603 1337.5 630
-                        C1251 635.5 1346.5 538  1341.5 630" fill="none" stroke="#00FF80" stroke-width="8"
-                            stroke-linecap="round" />
-                    </g>
-                    <defs>
-                        <filter id="filter0_d_128_18" x="0.6" y="0.599878" width="1366.62" height="648.3"
-                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feColorMatrix in="SourceAlpha" type="matrix"
-                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                            <feOffset />
-                            <feGaussianBlur stdDeviation="8.95" />
-                            <feComposite in2="hardAlpha" operator="out" />
-                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 0.501961 0 0 0 1 0" />
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_128_18" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_128_18" result="shape" />
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-
-            <!-- Top‑Right Text -->
-            <div id="text-top-right" class="step">
-                A new learning experience.<br>
-                Exploratory. Personalized.<br>
-                Empowering you to take control of your journey.
-            </div>
-
-            <!-- Bottom‑Right Text -->
-            <div id="text-bottom-right" class="step">
-                A newly found guiding star
-            </div>
-
-            <!-- Guiding Star SVG replacing the text star -->
-            <img id="guiding-star" src="assets/GuidingStar.svg" alt="Guiding Star">
-
-            <!-- Bottom‑Left Text -->
-            <div id="text-bottom-left" class="step">
-                Our hybrid technology.<br>
-                Powered by the fusion of AI and neuroscience.
-            </div>
-        </div>
-
-        <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Detect if we're on mobile
-            function isMobile() {
-                return window.matchMedia("(max-width: 768px)").matches;
-            }
-
-            function isTablet() {
-                return window.matchMedia("(max-width: 1024px)").matches && !isMobile();
-            }
-
-            // build a single timeline, scrubbed by scroll
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".scroll-wrapper",
-                    start: "top 5%",
-                    end: isMobile() ? "bottom+=50% top" : "bottom+=100% top", // Adjust scroll distance for mobile
-                    scrub: 1,
-                    pin: true
-                }
-            });
-
-            const knowledge_path = document.querySelector("#knowledge-path-svg");
-            let pathLength = knowledge_path.getTotalLength();
-
-            // Set up the starting position
-            knowledge_path.style.strokeDasharray = pathLength;
-            knowledge_path.style.strokeDashoffset = pathLength;
-
-            // reveal text 1 immediately
-            tl.to("#text-top-left", { opacity: 1, duration: 0.1 }, 0);
-
-            if (isMobile()) {
-                // Mobile animations - simplified and centered
-                tl.to(knowledge_path, { strokeDashoffset: 0, duration: 1.5, ease: "power1.inOut" }, 0.2);
-                tl.to("#knowledge-path", { opacity: 1, duration: 0.1, ease: "power1.inOut" }, 0.1);
-                tl.to("#text-top-right", { opacity: 1, duration: 0.3 }, 0.8);
-                tl.to("#knowledge-path-svg", { scale: 1, duration: 1, ease: "power1.inOut", opacity: 1 }, 1.0);
-                tl.to("#text-bottom-right", { opacity: 1, duration: 0.3 }, 1.5);
-                tl.fromTo("#guiding-star",
-                    { opacity: 0, scale: 0.5 },
-                    { opacity: 1, scale: 1, duration: 1.5, ease: "power1.inOut" }, 2.0);
-                tl.to("#text-bottom-left", { opacity: 1, duration: 0.3 }, 3.0);
-            }
-            else if (isTablet()) {
-                // Tablet animations - adjusted scaling
-                tl.to(knowledge_path, { strokeDashoffset: 0, duration: 2.0, ease: "power1.inOut" }, 0.2);
-                tl.to("#knowledge-path", { opacity: 1, duration: 0.1, ease: "power1.inOut" }, 0.1);
-                tl.to("#text-top-right", { opacity: 1, duration: 0.3 }, 1.2);
-                tl.to("#knowledge-path-svg", { scale: 1, duration: 1.5, ease: "power1.inOut", opacity: 1 }, 1.5);
-                tl.to("#text-bottom-right", { opacity: 1, duration: 0.3 }, 2.0);
-                tl.fromTo("#guiding-star",
-                    { x: "-5vw", opacity: 0, scale: 0.8 },
-                    { x: "-35vw", opacity: 1, scale: 1, duration: 2.0, ease: "power1.inOut" }, 3.0);
-                tl.to("#text-bottom-left", { opacity: 1, duration: 0.3 }, 4.5);
-            }
-            else {
-                // Desktop animations - original
-                // Gradually reveal and trace the knowledge path using strokeDashoffset animation
-                tl.to(knowledge_path, { strokeDashoffset: 0, duration: 2.5, ease: "power1.inOut" }, 0.2);
-                tl.to("#knowledge-path", { opacity: 1, duration: 0.1, ease: "power1.inOut" }, 0.1);
-
-                // Show top right text as path begins to appear
-                tl.to("#text-top-right", { opacity: 1, duration: 0.3 }, 1.5);
-
-                // Continue growing the path more slowly
-                tl.to("#knowledge-path-svg",
-                    { scale: 1, duration: 2, ease: "power1.inOut", opacity: 1 }, 2.0);
-
-                // Show bottom right text when path is almost complete
-                tl.to("#text-bottom-right", { opacity: 1, duration: 0.3 }, 2.5);
-
-                // Guiding star moves more slowly across the screen
-                tl.fromTo("#guiding-star",
-                    { x: "-10vw", opacity: 0, scale: 1 },
-                    { x: "-50vw", opacity: 1, scale: 1, duration: 2.5, ease: "power1.inOut" }, 3.5);
-
-                // Show bottom left text near the end of star's journey
-                tl.to("#text-bottom-left", { opacity: 1, duration: 0.5 }, 6);
-            }
-
-            // Window resize handler to refresh animations on screen size change
-            window.addEventListener('resize', () => {
-                ScrollTrigger.refresh();
-            });
-        </script>
+        <!-- Content section -->
+        <section class="content-section">
 
         <!-- New wait list wide card -->
         <div class="wide-card waitlist-card">
@@ -246,7 +153,14 @@
                 <button class="contact-button">Contact us</button>
             </div>
         </div>
+        </section>
     </main>
+
+    <!-- Scroll indicator -->
+    <div id="scroll-indicator" class="scroll-indicator">
+        <div class="scroll-text">Scroll down</div>
+        <div class="scroll-arrow">↓</div>
+    </div>
 
     <!-- Footer (stays at bottom, doesn't follow scroll) -->
     <footer class="footer">
