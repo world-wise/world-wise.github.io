@@ -852,26 +852,36 @@ body {
     }
     
     #knowledge-path {
-        transform: scale(0.7);
-        top: 10%;
-        left: 50%;
-        transform-origin: center;
+        transform: scale(0.7) !important;
+        top: 4% !important;
+        left: 0% !important;
+        width: 100% !important;
+        height: 60% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+    }
+    
+    .knowledge-path-svg {
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
     }
     
     #text-top-left {
-        top: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
+        top: 8%;
+        left: 10%;
+        right: 10%;
+        width: 80%;
         text-align: center;
         font-size: 1.8rem;
     }
     
     #text-top-right {
-        top: 20%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
+        top: 30%;
+        left: 10%;
+        right: 10%;
+        width: 80%;
         text-align: center;
         font-size: 1rem;
     }
@@ -974,10 +984,20 @@ body {
     }
     
     #knowledge-path {
-        transform: scale(0.5);
-        top: 8%;
+        transform: scale(0.5) translateX(-50%);
+        top: 10%;
         left: 50%;
-        transform-origin: center;
+        width: 100%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .knowledge-path-svg {
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
     }
     
     #text-top-left,
