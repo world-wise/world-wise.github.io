@@ -238,7 +238,6 @@ function initializeScrollInteractions() {
 class ScrollAnimationController {
     constructor() {
         this.maxProgress = 0;
-        this.animationLocked = false;
         this.scrollTriggerInstance = null;
         this.timeline = null;
         
@@ -293,31 +292,28 @@ class ScrollAnimationController {
         });
     }
 
-    // Create the ScrollTrigger instance with custom progress handling
+    // Create the ScrollTrigger instance with forward-only animation behavior
     createScrollTrigger() {
         this.scrollTriggerInstance = ScrollTrigger.create({
             trigger: ".scroll-wrapper",
             start: "top top",
-            end: this.isMobile() ? "+=500vh" : "+=600vh",
+            end: this.isMobile() ? "+=700vh" : "+=900vh", // Increased scroll distances
             pin: true,
             onUpdate: (self) => {
-                if (!this.animationLocked) {
-                    // Allow normal progression
-                    if (self.progress >= this.maxProgress) {
-                        this.maxProgress = self.progress;
-                        this.timeline.progress(self.progress);
-                    } else if (this.maxProgress > 0.1) {
-                        // Lock animation if we've progressed significantly and user scrolls back
-                        this.animationLocked = true;
-                        this.timeline.progress(this.maxProgress);
-                    } else {
-                        // Allow small backward movements early in animation
-                        this.timeline.progress(self.progress);
-                    }
-                }
-                // If locked, keep timeline at max progress
-                if (this.animationLocked) {
+                // Always update max progress when moving forward
+                if (self.progress >= this.maxProgress) {
+                    this.maxProgress = self.progress;
+                    this.timeline.progress(self.progress);
+                } else {
+                    // When scrolling backward, maintain forward-only behavior
+                    // by keeping the timeline at the maximum reached progress
                     this.timeline.progress(this.maxProgress);
+                }
+                
+                // If we've reached the end, ensure animation completes
+                if (self.progress >= 0.99) {
+                    this.timeline.progress(1);
+                    this.maxProgress = 1;
                 }
             }
         });
@@ -337,43 +333,43 @@ class ScrollAnimationController {
     // Mobile-specific animations
     buildMobileAnimation(knowledgePath) {
         this.timeline
-            .to(knowledgePath, { strokeDashoffset: 0, duration: 1.5, ease: "power1.inOut" }, 0.2)
-            .to("#knowledge-path", { opacity: 1, duration: 0.1, ease: "power1.inOut" }, 0.1)
-            .to("#text-top-right", { opacity: 1, duration: 0.3 }, 0.8)
-            .to("#knowledge-path-svg", { scale: 1, duration: 1, ease: "power1.inOut", opacity: 1 }, 1.0)
-            .to("#text-bottom-right", { opacity: 1, duration: 0.3 }, 1.5)
+            .to(knowledgePath, { strokeDashoffset: 0, duration: 2.2, ease: "power1.inOut" }, 0.3)
+            .to("#knowledge-path", { opacity: 1, duration: 0.2, ease: "power1.inOut" }, 0.2)
+            .to("#text-top-right", { opacity: 1, duration: 0.5 }, 1.2)
+            .to("#knowledge-path-svg", { scale: 1, duration: 1.5, ease: "power1.inOut", opacity: 1 }, 1.5)
+            .to("#text-bottom-right", { opacity: 1, duration: 0.5 }, 2.2)
             .fromTo("#guiding-star",
                 { opacity: 0, scale: 0.5 },
-                { opacity: 1, scale: 1, duration: 1.5, ease: "power1.inOut" }, 2.0)
-            .to("#text-bottom-left", { opacity: 1, duration: 0.3 }, 3.0);
+                { opacity: 1, scale: 1, duration: 2.2, ease: "power1.inOut" }, 3.0)
+            .to("#text-bottom-left", { opacity: 1, duration: 0.5 }, 4.5);
     }
 
     // Tablet-specific animations
     buildTabletAnimation(knowledgePath) {
         this.timeline
-            .to(knowledgePath, { strokeDashoffset: 0, duration: 2.0, ease: "power1.inOut" }, 0.2)
-            .to("#knowledge-path", { opacity: 1, duration: 0.1, ease: "power1.inOut" }, 0.1)
-            .to("#text-top-right", { opacity: 1, duration: 0.3 }, 1.2)
-            .to("#knowledge-path-svg", { scale: 1, duration: 1.5, ease: "power1.inOut", opacity: 1 }, 1.5)
-            .to("#text-bottom-right", { opacity: 1, duration: 0.3 }, 2.0)
+            .to(knowledgePath, { strokeDashoffset: 0, duration: 3.0, ease: "power1.inOut" }, 0.3)
+            .to("#knowledge-path", { opacity: 1, duration: 0.2, ease: "power1.inOut" }, 0.2)
+            .to("#text-top-right", { opacity: 1, duration: 0.5 }, 1.8)
+            .to("#knowledge-path-svg", { scale: 1, duration: 2.2, ease: "power1.inOut", opacity: 1 }, 2.2)
+            .to("#text-bottom-right", { opacity: 1, duration: 0.5 }, 3.0)
             .fromTo("#guiding-star",
                 { x: "-5vw", opacity: 0, scale: 0.8 },
-                { x: "-35vw", opacity: 1, scale: 1, duration: 2.0, ease: "power1.inOut" }, 3.0)
-            .to("#text-bottom-left", { opacity: 1, duration: 0.3 }, 4.5);
+                { x: "-35vw", opacity: 1, scale: 1, duration: 3.0, ease: "power1.inOut" }, 4.5)
+            .to("#text-bottom-left", { opacity: 1, duration: 0.5 }, 6.8);
     }
 
     // Desktop-specific animations
     buildDesktopAnimation(knowledgePath) {
         this.timeline
-            .to(knowledgePath, { strokeDashoffset: 0, duration: 2.5, ease: "power1.inOut" }, 0.2)
-            .to("#knowledge-path", { opacity: 1, duration: 0.1, ease: "power1.inOut" }, 0.1)
-            .to("#text-top-right", { opacity: 1, duration: 0.3 }, 1.5)
-            .to("#knowledge-path-svg", { scale: 1, duration: 2, ease: "power1.inOut", opacity: 1 }, 2.0)
-            .to("#text-bottom-right", { opacity: 1, duration: 0.3 }, 2.5)
+            .to(knowledgePath, { strokeDashoffset: 0, duration: 3.8, ease: "power1.inOut" }, 0.3)
+            .to("#knowledge-path", { opacity: 1, duration: 0.2, ease: "power1.inOut" }, 0.2)
+            .to("#text-top-right", { opacity: 1, duration: 0.5 }, 2.2)
+            .to("#knowledge-path-svg", { scale: 1, duration: 3.0, ease: "power1.inOut", opacity: 1 }, 3.0)
+            .to("#text-bottom-right", { opacity: 1, duration: 0.5 }, 3.8)
             .fromTo("#guiding-star",
                 { x: "-10vw", opacity: 0, scale: 1 },
-                { x: "-50vw", opacity: 1, scale: 1, duration: 2.5, ease: "power1.inOut" }, 3.5)
-            .to("#text-bottom-left", { opacity: 1, duration: 0.5 }, 6);
+                { x: "-50vw", opacity: 1, scale: 1, duration: 3.8, ease: "power1.inOut" }, 5.2)
+            .to("#text-bottom-left", { opacity: 1, duration: 0.8 }, 9.0);
     }
 
     // Clean up method
