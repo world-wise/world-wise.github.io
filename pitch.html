@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldWise</title>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Adding Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <section class="content-section">
+        <div class="iframe-container">
+            <iframe class="responsive-iframe"
+                src="https://embed.figma.com/slides/Xk2nzXxULMk9xlNVH8kCSZ/Pitch-Deck-15m?node-id=6059-219&embed-host=share"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Scroll indicator -->
+    <div id="scroll-indicator" class="scroll-indicator">
+        <div class="scroll-text">Scroll down</div>
+        <div class="scroll-arrow">↓</div>
+    </div>
+
+    <!-- Footer (stays at bottom, doesn't follow scroll) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                <img src="assets/Logo.svg" alt="WorldWise Logo" class="footer-logo">
+                <p>&copy; 2025 WorldWise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="scripts.js"></script>
+</body>
+
+</html>
